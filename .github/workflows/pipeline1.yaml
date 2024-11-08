@@ -9,4 +9,6 @@ jobs:
             - name: Pulling Code
               uses: actions/checkout@v4
               with:
-                ref: master    
+                ref: master
+            - name: listing the file
+              run: ls -al        
