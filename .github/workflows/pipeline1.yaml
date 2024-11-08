@@ -1,0 +1,12 @@
+name: Deployment Of Pipeline
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on : [push]
+jobs:
+    web-pull-app:
+        name: Pulling Code
+        runs-on: ubuntu-latest
+        steps:
+            - name: Pulling Code
+              uses: actions/checkout@v4
+              with:
+                ref: master    
