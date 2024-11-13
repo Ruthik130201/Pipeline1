@@ -29,5 +29,3 @@ jobs:
                   script:
                     sudo mv webpage/index.html /var/www/html/webpage/
                     sudo systemctl restart nginx
-
-
