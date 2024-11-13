@@ -26,6 +26,6 @@ jobs:
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USER }}
                   key: ${{ secrets.KEY }}
-                  script:
+                  script: |
                     sudo mv webpage/index.html /var/www/html/webpage/
                     sudo systemctl restart nginx
