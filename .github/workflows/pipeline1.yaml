@@ -10,5 +10,24 @@ jobs:
               uses: actions/checkout@v4
               with:
                 ref: master
-            - name: listing the file
-              run: ls -al        
+
+            - name: Copy files to server
+              uses: appleboy/scp-action@v0.1.7
+              with:
+                host: ${{ secrets.HOST }}
+                username: ${{ secrets.USER }}
+                key: ${{ secrets.KEY }}
+                source: index.html
+                target: webpage
+
+            - name: Copy files to server
+              uses: appleboy/ssh-action@v1.1.0
+              with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USER }}
+                  key: ${{ secrets.KEY }}
+                  script:
+                    sudo mv webpage/index.html /var/www/html/webpage/
+                    sudo systemctl restart nginx
+
+
